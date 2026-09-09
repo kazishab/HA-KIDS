@@ -77,78 +77,10 @@ function goHome() {
     showScreen('homeScreen');
 }
 
-function goToGameMode() {
-    showScreen('gameModeScreen');
-}
-
 // ============= GAME SELECTION =============
 function selectGame(gameType) {
     currentGame = gameType;
-    const titles = {
-        'memory': 'Memory Match',
-        'pattern': 'Number Patterns',
-        'speed': 'Speed Match',
-        'sudoku': 'Sudoku'
-    };
-    document.getElementById('modeScreenTitle').textContent = titles[gameType] + ' - Select Mode';
-    showScreen('gameModeScreen');
-}
-
-function startGameMode(mode) {
-    currentGameMode = mode;
-
-    if (mode === 'online') {
-        showScreen('onlineRoomScreen');
-    } else {
-        startGame(mode);
-    }
-}
-
-// ============= ONLINE GAME =============
-async function createOnlineRoom() {
-    if (!currentGame) return;
-
-    try {
-        const result = await createGameRoom(currentGame);
-        if (result) {
-            alert(`Room Created!\n\nCode: ${result.roomCode}\n\nShare this code with your friend!`);
-            window.currentRoomId = result.roomId;
-            window.currentRoomCode = result.roomCode;
-            startGame('online');
-        }
-    } catch (error) {
-        alert('Error creating room: ' + error.message);
-    }
-}
-
-async function joinOnlineRoom() {
-    if (!currentGame) return;
-
-    const roomCode = document.getElementById('roomCodeInput').value.trim();
-    
-    if (!roomCode) {
-        alert('Please enter a room code!');
-        return;
-    }
-
-    if (roomCode.length !== 4) {
-        alert('Code must be 4 digits!');
-        return;
-    }
-
-    try {
-        const result = await joinGameRoom(currentGame, roomCode);
-        if (result.success) {
-            window.currentRoomId = result.roomId;
-            window.currentRoomCode = result.roomCode;
-            alert('Joined room successfully!');
-            startGame('online');
-        } else {
-            alert('Error: ' + result.message);
-        }
-    } catch (error) {
-        alert('Error joining room: ' + error.message);
-    }
+    startGame('solo');
 }
 
 // ============= GAME STARTING =============
