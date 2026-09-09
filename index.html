@@ -70,69 +70,6 @@
             </div>
         </div>
 
-        <!-- =============== GAME MODE SELECTION =============== -->
-        <div id="gameModeScreen" class="screen">
-            <header class="app-header">
-                <button class="back-btn" onclick="goHome()">← Back</button>
-                <h2 id="modeScreenTitle">Select Game Mode</h2>
-            </header>
-
-            <div class="modes-container">
-                <!-- VS Computer Mode -->
-                <div class="mode-card" onclick="startGameMode('computer')">
-                    <div class="mode-icon">🤖</div>
-                    <h3>VS Computer</h3>
-                    <p>Play against AI</p>
-                </div>
-
-                <!-- Pass & Play Mode -->
-                <div class="mode-card" onclick="startGameMode('passplay')">
-                    <div class="mode-icon">👥</div>
-                    <h3>Pass & Play</h3>
-                    <p>Two players on same device</p>
-                </div>
-
-                <!-- Online Mode -->
-                <div class="mode-card" onclick="startGameMode('online')">
-                    <div class="mode-icon">🌐</div>
-                    <h3>Play Online</h3>
-                    <p>Play with friends online</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- =============== ONLINE ROOM SELECTION =============== -->
-        <div id="onlineRoomScreen" class="screen">
-            <header class="app-header">
-                <button class="back-btn" onclick="goToGameMode()">← Back</button>
-                <h2>Play Online</h2>
-            </header>
-
-            <div class="online-options">
-                <div class="option-card" onclick="createOnlineRoom()">
-                    <div class="option-icon">➕</div>
-                    <h3>Create Room</h3>
-                    <p>Get a code to share</p>
-                </div>
-
-                <div class="divider">OR</div>
-
-                <div class="option-card">
-                    <div class="option-icon">🔗</div>
-                    <h3>Join Room</h3>
-                    <label>Enter room code (4 digits):</label>
-                    <input 
-                        type="text" 
-                        id="roomCodeInput" 
-                        class="room-code-input" 
-                        placeholder="Example: 1234"
-                        maxlength="4"
-                    >
-                    <button id="joinRoomBtn" onclick="joinOnlineRoom()" class="btn-primary">Join Room</button>
-                </div>
-            </div>
-        </div>
-
         <!-- =============== GAME SCREENS =============== -->
         
         <!-- Memory Game Screen -->
